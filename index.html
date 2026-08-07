@@ -6,6 +6,32 @@
   </head>
   <body>
     <h1>Privacy Form Testing Lab</h1>
-    <p>A log of the repositories I've starred.</p>
+    <p>California residents may use this form to submit a request under the Sample California Privacy Act (SCPA) regarding their personal information.</p>
+    <p>Are you a Resident of California?</p>
+    <label>
+      <input type="radio" name="resident" value="yes" id="resident-yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="resident" value="no" id="resident-no"> No
+    </label>
+<p id="non-resident-message" hidden>
+    Only California residents may use this form. Only California residents are covered under the SCPA.
+</p>
+  <button id="submit-button" type="button">Submit</button>
+<script>
+   const submitButton = document.getElementById("submit-button");
+    const yesButton = document.getElementById("resident-yes");
+    const noButton = document.getElementById("resident-no");
+    const message = document.getElementById("non-resident-message");
+
+    noButton.addEventListener("change", function() {
+        message.hidden = false;
+        submitButton.disabled = true;
+    });
+    yesButton.addEventListener("change", function() {
+        message.hidden = true;
+        submitButton.disabled = false;
+    });
+</script>
   </body>
 </html>
