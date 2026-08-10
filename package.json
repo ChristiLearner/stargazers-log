@@ -1,0 +1,23 @@
+{
+  "name": "stargazers-log",
+  "version": "1.0.0",
+  "description": "Following steps in creating repository in GitHub doc. A log of the repositories I've starred.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristiLearner/stargazers-log.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ChristiLearner/stargazers-log/issues"
+  },
+  "homepage": "https://github.com/ChristiLearner/stargazers-log#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  }
+}
