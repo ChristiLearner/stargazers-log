@@ -14,3 +14,8 @@ test('CA-003 verifies the non-resident message', async ({ page }) => {
    await expect(page.locator('#non-resident-message')).toBeVisible();
    await expect(page.locator('#non-resident-message')).toContainText('Only California residents may use this form. Only California residents are covered under the CCPA. Please contact Medical Security Card Company, LLC’s customer assistance department if you need assistance with another matter.');
 });
+test('CA-004 verifies Submit is disabled for non-residents', async ({ page }) => {
+   await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
+   await page.locator('#resident-no').check();
+   await expect(page.locator('#submit-button')).toBeDisabled();
+});
