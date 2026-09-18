@@ -15,23 +15,46 @@
     <label>
       <input type="radio" name="resident" value="no" id="resident-no"> No
     </label>
+    <div id="requester-type-section" hidden>
+    <p id="requester-type">I am a (an)</p>
+    <label>
+      <input type="radio" name="requester-type" value="consumer" id="requester-consumer"> Consumer
+    </label>
+    <label>
+      <input type="radio" name="requester-type" value="parent" id="requester-parent"> Parent/Guardian of a Minor
+    </label>
+    <label>
+      <input type="radio" name="requester-type" value="authorized-agent" id="requester-authorized-agent"> Authorized Agent
+    </label>
+    </div>
+
 <p id="non-resident-message" hidden>
     Only California residents may use this form. Only California residents are covered under the CCPA. Please contact Medical Security Card Company, LLC’s customer assistance department if you need assistance with another matter.
 </p>
-  <button id="submit-button" type="button">Submit</button>
+<p id="acknowledgement" hidden>
+    Acknowledgement
+By submitting this form you confirm that you are a resident of California and that you are the individual who is subject to the information requested or that you are that individual’s authorized representative.  
+ </p>
+  <button id="submit-button" type="button" disabled>Submit</button>
 <script>
    const submitButton = document.getElementById("submit-button");
     const yesButton = document.getElementById("resident-yes");
     const noButton = document.getElementById("resident-no");
     const message = document.getElementById("non-resident-message");
+    const acknowledgement = document.getElementById("acknowledgement");
+    const requesterTypeSection = document.getElementById("requester-type-section");
 
     noButton.addEventListener("change", function() {
         message.hidden = false;
+        acknowledgement.hidden = true;
         submitButton.disabled = true;
+        requesterTypeSection.hidden = true;
     });
     yesButton.addEventListener("change", function() {
         message.hidden = true;
-        submitButton.disabled = false;
+        acknowledgement.hidden = false;
+        submitButton.disabled = true;
+        requesterTypeSection.hidden = false;
     });
 </script>
   </body>

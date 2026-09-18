@@ -19,3 +19,18 @@ test('CA-004 verifies Submit is disabled for non-residents', async ({ page }) =>
    await page.locator('#resident-no').check();
    await expect(page.locator('#submit-button')).toBeDisabled();
 });
+test('CA-005 verifies Requester type options', async ({ page }) => {
+   await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
+   await page.locator('#resident-yes').check();
+   await expect(page.locator('#requester-type')).toContainText('I am a (an)');
+   await expect(page.locator('#requester-type-section')).toBeVisible();
+   await expect(page.locator('#requester-type-section')).toContainText('Consumer');
+   await expect(page.locator('#requester-type-section')).toContainText('Parent/Guardian of a Minor');
+   await expect(page.locator('#requester-type-section')).toContainText('Authorized Agent');
+});
+test('CA-006 verifies Acknowledgment message', async ({ page }) => {
+   await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
+   await page.locator('#resident-yes').check();
+   await expect(page.locator('#acknowledgement')).toBeVisible();
+   await expect(page.locator('#acknowledgement')).toContainText('By submitting this form you confirm that you are a resident of California and that you are the individual who is subject to the information requested or that you are that individual’s authorized representative.');
+});
