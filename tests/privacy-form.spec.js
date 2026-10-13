@@ -28,7 +28,7 @@ test('CA-005 verifies Requester type options', async ({ page }) => {
    await expect(page.locator('#requester-type-section')).toContainText('Parent/Guardian of a Minor');
    await expect(page.locator('#requester-type-section')).toContainText('Authorized Agent');
 });
-test('CA-006 verifies Acknowledgment message', async ({ page }) => {
+test('CA-006 verifies Acknowledgement message', async ({ page }) => {
    await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
    await page.locator('#resident-yes').check();
    await expect(page.locator('#acknowledgement')).toBeVisible();
