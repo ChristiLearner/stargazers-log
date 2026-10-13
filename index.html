@@ -35,6 +35,14 @@
     Acknowledgement
 By submitting this form you confirm that you are a resident of California and that you are the individual who is subject to the information requested or that you are that individual’s authorized representative.  
  </p>
+<div id="parent-name-section" hidden>
+    <p id="parent-name-prompt"> Parent / Guardian Name</p>
+    <label>
+      <input type="text" name="parent-name-input"  id="parent-name-input"> 
+    </label>
+    </div>
+
+
   <button id="submit-button" type="button" disabled>Submit</button>
 <script>
    const submitButton = document.getElementById("submit-button");
@@ -43,7 +51,10 @@ By submitting this form you confirm that you are a resident of California and th
     const message = document.getElementById("non-resident-message");
     const acknowledgement = document.getElementById("acknowledgement");
     const requesterTypeSection = document.getElementById("requester-type-section");
-
+    const parentNameSection = document.getElementById("parent-name-section");
+const requesterConsumerButton = document.getElementById("requester-consumer");
+const requesterParentButton = document.getElementById("requester-parent");
+const requesterAuthorizedAgentButton = document.getElementById("requester-authorized-agent");
     noButton.addEventListener("change", function() {
         message.hidden = false;
         acknowledgement.hidden = true;
@@ -55,6 +66,15 @@ By submitting this form you confirm that you are a resident of California and th
         acknowledgement.hidden = false;
         submitButton.disabled = true;
         requesterTypeSection.hidden = false;
+    });
+    requesterParentButton.addEventListener("change", function() {
+        parentNameSection.hidden = false;
+    });
+    requesterConsumerButton.addEventListener("change", function() {
+        parentNameSection.hidden = true;
+    });
+    requesterAuthorizedAgentButton.addEventListener("change", function() {
+        parentNameSection.hidden = true;
     });
 </script>
   </body>

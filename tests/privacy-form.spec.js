@@ -34,3 +34,14 @@ test('CA-006 verifies Acknowledgement message', async ({ page }) => {
    await expect(page.locator('#acknowledgement')).toBeVisible();
    await expect(page.locator('#acknowledgement')).toContainText('By submitting this form you confirm that you are a resident of California and that you are the individual who is subject to the information requested or that you are that individual’s authorized representative.');
 });
+test('CA-007 verifies Parent/Guardian Name field', async ({ page }) => {
+   await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
+   await page.locator('#resident-yes').check();
+   await page.locator('#requester-parent').check();
+   await expect(page.locator('#parent-name-section')).toBeVisible();
+   await expect(page.locator('#parent-name-prompt')).toContainText('Parent / Guardian Name');
+   await expect(page.locator('#parent-name-input')).toBeVisible();
+   await expect(page.locator('#parent-name-input')).toBeEnabled();
+   await page.locator('#parent-name-input').fill('Parent Name');
+   await expect(page.locator('#parent-name-input')).toHaveValue('Parent Name');
+});
