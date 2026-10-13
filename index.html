@@ -41,7 +41,12 @@ By submitting this form you confirm that you are a resident of California and th
       <input type="text" name="parent-name-input"  id="parent-name-input"> 
     </label>
     </div>
-
+<div id="agent-name-section" hidden>
+    <p id="agent-name-prompt"> Authorized Agent</p> 
+    <label>
+      <input type="text" name="agent-name-input"  id="agent-name-input">
+    </label>
+    </div>
 
   <button id="submit-button" type="button" disabled>Submit</button>
 <script>
@@ -52,6 +57,7 @@ By submitting this form you confirm that you are a resident of California and th
     const acknowledgement = document.getElementById("acknowledgement");
     const requesterTypeSection = document.getElementById("requester-type-section");
     const parentNameSection = document.getElementById("parent-name-section");
+    const agentNameSection = document.getElementById("agent-name-section");
 const requesterConsumerButton = document.getElementById("requester-consumer");
 const requesterParentButton = document.getElementById("requester-parent");
 const requesterAuthorizedAgentButton = document.getElementById("requester-authorized-agent");
@@ -76,6 +82,19 @@ const requesterAuthorizedAgentButton = document.getElementById("requester-author
     requesterAuthorizedAgentButton.addEventListener("change", function() {
         parentNameSection.hidden = true;
     });
+    requesterAuthorizedAgentButton.addEventListener("change", function() {
+        agentNameSection.hidden = false;
+    });
+    requesterConsumerButton.addEventListener("change", function() {
+        agentNameSection.hidden = true;
+    });
+    requesterParentButton.addEventListener("change", function() {
+        agentNameSection.hidden = true;
+    });
+
+
+
+
 </script>
   </body>
 </html>

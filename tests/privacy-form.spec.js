@@ -45,3 +45,14 @@ test('CA-007 verifies Parent/Guardian Name field', async ({ page }) => {
    await page.locator('#parent-name-input').fill('Parent Name');
    await expect(page.locator('#parent-name-input')).toHaveValue('Parent Name');
 });
+test('CA-008 verifies Authorized Agent field', async ({ page }) => {
+   await page.goto('file:///C:/Users/cendr/OneDrive/Documents/cle/GitHub/stargazers-log/index.html');
+   await page.locator('#resident-yes').check();
+   await page.locator('#requester-authorized-agent').check();
+   await expect(page.locator('#agent-name-section')).toBeVisible();
+   await expect(page.locator('#agent-name-prompt')).toContainText('Authorized Agent');
+   await expect(page.locator('#agent-name-input')).toBeVisible();
+   await expect(page.locator('#agent-name-input')).toBeEnabled();
+   await page.locator('#agent-name-input').fill('Auth Agent Name');
+   await expect(page.locator('#agent-name-input')).toHaveValue('Auth Agent Name');
+});
